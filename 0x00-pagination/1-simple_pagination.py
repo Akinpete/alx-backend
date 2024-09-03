@@ -3,10 +3,12 @@
 This module provides a Server class to
 paginate a database of popular baby names.
 """
-
+import sys
 import csv
 from typing import List
-from 0-simple_helper_function import index_range
+
+simple_helper_function = __import__('0-simple_helper_function')
+index_range = simple_helper_function.index_range
 
 
 class Server:
