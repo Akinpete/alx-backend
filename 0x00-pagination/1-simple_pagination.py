@@ -38,8 +38,10 @@ class Server:
         :param page_size: The number of items per page
         :return: A list of rows corresponding to the specified page
         """
-        assert isinstance(page, int) and page > 0, "Page must be an integer greater than 0"
-        assert isinstance(page_size, int) and page_size > 0, "Page size must be an integer greater than 0"
+        assert isinstance(page, int) and page > 0,\
+            "Page must be an integer greater than 0"
+        assert isinstance(page_size, int) and page_size > 0,\
+            "Page size must be an integer greater than 0"
 
         start_index, end_index = index_range(page, page_size)
         dataset = self.dataset()
@@ -48,4 +50,3 @@ class Server:
             return []
 
         return dataset[start_index:end_index]
-    
