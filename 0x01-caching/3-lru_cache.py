@@ -30,8 +30,6 @@ class LRUCache(BaseCaching):
         # If the cache is full, evict the last added key
         if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
             self.least_key = self.least_list[0]
-            print('READY TO SPECIAL PUT {}'.format(key))
-            print('{}' .format(self.least_list))
             if key not in self.cache_data:
                 if self.least_key is not None:
                     del self.cache_data[self.least_key]
@@ -49,8 +47,6 @@ class LRUCache(BaseCaching):
 
         # Add or update the cache with the key/item pair
         self.cache_data[key] = item
-        print('AFTER ALL PUT')
-        print('{}' .format(self.least_list))
 
     def get(self, key):
         """ Retrieve an item from the cache """
@@ -59,6 +55,4 @@ class LRUCache(BaseCaching):
         value = self.cache_data.get(key)
         if value is not None:
             used_now(self.least_list, key)
-        print('AFTER GET of {}'.format(key))
-        print('{}' .format(self.least_list))
         return value
