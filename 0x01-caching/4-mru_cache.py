@@ -29,7 +29,8 @@ class MRUCache(BaseCaching):
 
         # If the cache is full, evict the last added key
         if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
-            self.most_key = self.most_list[3]
+            most_used_index = BaseCaching.MAX_ITEMS - 1
+            self.most_key = self.most_list[most_used_index]
             if key not in self.cache_data:
                 if self.most_key is not None:
                     del self.cache_data[self.most_key]
